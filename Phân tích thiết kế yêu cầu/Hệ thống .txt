@@ -1,0 +1,60 @@
+Hệ thống 
+---Quản lý tài khoản---
+- tạo tài khoản
+- chọn vai trò
+- nhập thông tin tài khoản
+- Bảo mật thông tin
+- đăng nhập
+
+---tạo không gian làm việc---
+- đăng nhập vào môi trường 
+- ấn thêm kglv
+- Nhập tên, công ty
+- Nhập mô tả
+- thêm thành viên có thể thao tác
+- phân quyền
+- Tiến hành Tạo
+
+---Tạo Bảng---
+- vào không gian làm việc
+- Nhập thông tin bảngg
+- Chọn chủ đề bảng
+- Chọn quyền truy cập bảng 
+- thêm Thành viên cho Bảng
+- Phân quyền thành viên
+- 
+
+---tạo danh sách công việc---
+- Truy cập vào bảng 
+- nHập tên danh sách
+- Thay đổi danh sách theo yêu cầu
+- Tạo quy tắc
+- Cài đặt lịch, thông báo
+
+---Truy nhập Thẻ công việc ---
+- Truy cập vào danh sách công việc
+- Thêm thẻ
+- Cài đặt thông báo
+- Nhập mô tả
+- Thêm thành viên
+- Phân quyền thành viên
+- thêm nhãn công việc
+- Thêm mô tả nhãn công việc
+- Giao việc
+- Đặt lịch chót
+- Thêm tiện ích
+
+---Thêm thành viên---
+- truy cập với quyền admin
+- Tìm kiếm thành viên theo địa chỉ 
+- Thêm thành viên theo link
+- Thêm thành viên theo phạm vi
+- phân truyền truy cập
+- phân loại thành viên
+
+---Xóa thành viên---
+- Truy cập với quyền admin
+- Truy cập phạm vi 
+- Tìm kiếm thành viên muốn xóa
+- loại bỏ thành viên
+

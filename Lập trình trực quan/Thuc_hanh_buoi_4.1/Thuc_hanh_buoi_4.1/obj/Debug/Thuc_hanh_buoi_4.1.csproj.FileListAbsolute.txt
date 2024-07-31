@@ -1,0 +1,10 @@
+C:\Users\Nguyen The Trung\Desktop\Bai_tap_Lap_trinh_truc_quan\Thuc_hanh_buoi_4.1\Thuc_hanh_buoi_4.1\bin\Debug\Thuc_hanh_buoi_4.1.exe.config
+C:\Users\Nguyen The Trung\Desktop\Bai_tap_Lap_trinh_truc_quan\Thuc_hanh_buoi_4.1\Thuc_hanh_buoi_4.1\bin\Debug\Thuc_hanh_buoi_4.1.exe
+C:\Users\Nguyen The Trung\Desktop\Bai_tap_Lap_trinh_truc_quan\Thuc_hanh_buoi_4.1\Thuc_hanh_buoi_4.1\bin\Debug\Thuc_hanh_buoi_4.1.pdb
+C:\Users\Nguyen The Trung\Desktop\Bai_tap_Lap_trinh_truc_quan\Thuc_hanh_buoi_4.1\Thuc_hanh_buoi_4.1\obj\Debug\Thuc_hanh_buoi_4.1.csproj.AssemblyReference.cache
+C:\Users\Nguyen The Trung\Desktop\Bai_tap_Lap_trinh_truc_quan\Thuc_hanh_buoi_4.1\Thuc_hanh_buoi_4.1\obj\Debug\Thuc_hanh_buoi_4._1.frmMatHang.resources
+C:\Users\Nguyen The Trung\Desktop\Bai_tap_Lap_trinh_truc_quan\Thuc_hanh_buoi_4.1\Thuc_hanh_buoi_4.1\obj\Debug\Thuc_hanh_buoi_4._1.Properties.Resources.resources
+C:\Users\Nguyen The Trung\Desktop\Bai_tap_Lap_trinh_truc_quan\Thuc_hanh_buoi_4.1\Thuc_hanh_buoi_4.1\obj\Debug\Thuc_hanh_buoi_4.1.csproj.GenerateResource.cache
+C:\Users\Nguyen The Trung\Desktop\Bai_tap_Lap_trinh_truc_quan\Thuc_hanh_buoi_4.1\Thuc_hanh_buoi_4.1\obj\Debug\Thuc_hanh_buoi_4.1.csproj.CoreCompileInputs.cache
+C:\Users\Nguyen The Trung\Desktop\Bai_tap_Lap_trinh_truc_quan\Thuc_hanh_buoi_4.1\Thuc_hanh_buoi_4.1\obj\Debug\Thuc_hanh_buoi_4.1.exe
+C:\Users\Nguyen The Trung\Desktop\Bai_tap_Lap_trinh_truc_quan\Thuc_hanh_buoi_4.1\Thuc_hanh_buoi_4.1\obj\Debug\Thuc_hanh_buoi_4.1.pdb

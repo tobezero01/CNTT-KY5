@@ -1,0 +1,49 @@
+git-lfs/3.3.0 (GitHub; windows amd64; go 1.19.3; git 77deabdf)
+git version 2.40.1.windows.1
+
+$ git-lfs prune
+Prune error: error in `git log`: exit status 128 fatal: not a git repository (or any of the parent directories): .git
+
+
+error in `git log`: exit status 128 fatal: not a git repository (or any of the parent directories): .git
+
+github.com/git-lfs/git-lfs/v3/errors.New
+	github.com/git-lfs/git-lfs/v3/errors/errors.go:62
+github.com/git-lfs/git-lfs/v3/lfs.parseScannerLogOutput.func1
+	github.com/git-lfs/git-lfs/v3/lfs/gitscanner_log.go:155
+runtime.goexit
+	runtime/asm_amd64.s:1594
+
+Current time in UTC:
+2024-07-19 10:54:28
+
+Environment:
+LocalWorkingDir=
+LocalGitDir=
+LocalGitStorageDir=
+LocalMediaDir=lfs\objects
+LocalReferenceDirs=
+TempDir=lfs\tmp
+ConcurrentTransfers=8
+TusTransfers=false
+BasicTransfersOnly=false
+SkipDownloadErrors=false
+FetchRecentAlways=false
+FetchRecentRefsDays=7
+FetchRecentCommitsDays=0
+FetchRecentRefsIncludeRemotes=true
+PruneOffsetDays=3
+PruneVerifyRemoteAlways=false
+PruneRemoteName=origin
+LfsStorageDir=lfs
+AccessDownload=none
+AccessUpload=none
+DownloadTransfers=basic,lfs-standalone-file,ssh
+UploadTransfers=basic,lfs-standalone-file,ssh
+GIT_EXEC_PATH=D:/git/Git/mingw64/libexec/git-core
+
+Client IP addresses:
+fe80::7e10:b685:4ddb:bc96 192.168.56.1
+fe80::eebe:6ede:9331:7a07 192.168.110.1
+fe80::4dfc:473d:438:941e 192.168.46.1
+fe80::e549:d874:67c5:674c 192.114.16.101

@@ -1,0 +1,5 @@
+home(Đức):Hiển thị sản phẩm mới, nhãn hàng iphone, nhãn hàng samsung, bán chạy
+validate đăng nhập, resgister
+wishlist, cart, phân quyền, checkout:Tùng
+shop: lọc category, sắp xếp theo giá, sắp xếp theo thời gian tạo, oneproduct :Trung
+Tối thứ 4.

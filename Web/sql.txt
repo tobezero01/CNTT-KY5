@@ -1,0 +1,166 @@
+use BTLWeb;
+CREATE TABLE tblUser (
+    UserID BIGINT NOT NULL IDENTITY(1,1),
+    firstName nVARCHAR(50) NULL DEFAULT NULL,
+    lastName nVARCHAR(50) NULL DEFAULT NULL,
+    mobile nVARCHAR(15) NULL,
+    email nVARCHAR(50) NULL,
+    passwordHash VARCHAR(32) NOT NULL,
+    isAdmin bit NOT NULL DEFAULT 0,
+    PRIMARY KEY (UserId),
+);
+ CREATE TABLE tblCategory  (
+        categoryID BIGINT NOT NULL IDENTITY(1,1),
+        categoryName nvarchar(100),
+        PRIMARY KEY (categoryID)
+);
+
+CREATE TABLE tblProduct (
+        productID BIGINT NOT NULL IDENTITY(1,1),
+        nameProduct NVARCHAR(100) NOT NULL,
+		categoryID BIGINT NOT NULL,
+        decription nvarchar(4000) null,
+        price FLOAT NOT NULL DEFAULT 0,
+        discount FLOAT NOT NULL DEFAULT 0,
+        quantity SMALLINT NOT NULL DEFAULT 0,
+        createdAt DATETIME NOT NULL,
+        updatedAt DATETIME NULL,
+        publishedAt DATETIME NULL,
+        startsAt DATETIME NULL,
+        image nvarchar(1000) null,
+        PRIMARY KEY (productID),
+		constraint fk_category_tblProduct foreign key (categoryID) references tblCategory (categoryID)
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION
+);
+
+CREATE TABLE btlOrder (
+            OrderID BIGINT NOT NULL IDENTITY(1,1),
+            UserId BIGINT NULL DEFAULT NULL,
+            token VARCHAR(100) NOT NULL,
+            status varchar(100) NOT NULL,
+            total FLOAT NOT NULL DEFAULT 0,
+            createdAt DATETIME NOT NULL,
+            updatedAt DATETIME NULL DEFAULT NULL,
+            PRIMARY KEY (OrderID),
+            CONSTRAINT fk_order_userid FOREIGN KEY (userId) REFERENCES tblUser (UserID)
+			ON DELETE NO ACTION
+			ON UPDATE NO ACTION
+);
+  CREATE TABLE tblBill (
+			billID BIGINT NOT NULL IDENTITY(1,1),
+			orderID BIGINT NOT NULL,
+			userID BIGINT not null,
+			status varchar(100) NOT NULL,
+			createdAt DATETIME NOT NULL,
+			updatedAt DATETIME NULL DEFAULT NULL,
+			total float not null,
+			PRIMARY KEY (billID),
+			CONSTRAINT fk_orderID_tblBill FOREIGN KEY (orderID) REFERENCES btlOrder (OrderID)
+			ON DELETE NO ACTION
+			ON UPDATE NO ACTION,
+			CONSTRAINT fk_userID_tblBill FOREIGN KEY (userID) REFERENCES tblUser (UserID)
+			ON DELETE NO ACTION
+			ON UPDATE NO ACTION,
+);
+
+CREATE TABLE tblOrderDetail (
+            OrderDetailID BIGINT NOT NULL IDENTITY(1,1),
+            productId BIGINT NOT NULL,
+            orderId BIGINT NOT NULL,
+            price FLOAT NOT NULL DEFAULT 0,
+            discount FLOAT NOT NULL DEFAULT 0,
+            quantity int NOT NULL DEFAULT 0,
+            createdAt DATETIME NOT NULL,
+            updatedAt DATETIME NULL DEFAULT NULL,
+            PRIMARY KEY (OrderDetailID),         
+            CONSTRAINT fk_order_item_product FOREIGN KEY (productId) REFERENCES tblProduct (productID)
+                ON DELETE NO ACTION
+                ON UPDATE NO ACTION
+);
+  
+  -- Thêm dữ liệu vào bảng tblUser
+INSERT INTO tblUser ( firstName, lastName, mobile, email, passwordHash, isAdmin) 
+VALUES 
+(N'Nguyễn', N'Hạ', N'123456789', N'nguyenha@gmail.com', 'abc123', 0),
+(N'Trần', N'Tuấn', N'987654321', N'trantuan@gmail.com', 'abc123', 1),
+(N'Đinh', N'Hoàng', N'555555555', N'dinhoang@gmail.com', 'abc123', 0),
+(N'Vũ', N'Hải', N'111111111', N'vuhai@gmail.com', 'abc123', 0),
+(N'Phạm', N'Quỳnh', N'444444444', N'phamquynh@gmail.com', 'abc123', 1),
+(N'Lê', N'Bình', N'777777777', N'lebinh@gmail.com', 'abc123', 0),
+(N'Hoàng', N'Trung', N'888888888', N'hoangtrung@gmail.com', 'abc123', 0),
+(N'Tran', N'Minh', N'999999999', N'tranminh@gmail.com', 'abc123', 0),
+(N'Phan', N'Tâm', N'666666666', N'phantam@gmail.com', 'abc123', 1),
+(N'Võ', N'Linh', N'222222222', N'volinh@gmail.com', 'abc123', 0);
+
+-- Thêm dữ liệu vào bảng tblCategory
+INSERT INTO tblCategory (categoryName) 
+VALUES 
+(N'Samsung'),
+(N'Apple'),
+(N'Xiaomi'),
+(N'Oppo'),
+(N'OnePlus'),
+(N'Realme'),
+(N'Vivo'),
+(N'Nokia'),
+(N'Google'),
+(N'Motorola');
+
+-- Thêm dữ liệu vào bảng tblProduct
+INSERT INTO tblProduct ( nameProduct, categoryID, decription, price, discount, quantity, createdAt, updatedAt, publishedAt, startsAt, image) 
+VALUES 
+(N'Samsung Galaxy S21', 1, N'Thiết kế đẹp, camera chất lượng cao', 1200, 0.1, 100, '2023-10-01 10:00', '2023-10-05 12:00', '2023-10-02 10:00', '2023-10-03 10:00', 'samsung_s21.jpg'),
+(N'iPhone 13 Pro', 2, N'Màn hình AMOLED, hiệu suất mạnh mẽ', 1500, 0.05, 80, '2023-10-02 09:00', '2023-10-04 14:00', '2023-10-02 09:00', '2023-10-04 10:00', 'iphone_13_pro.jpg'),
+(N'Xiaomi Redmi Note 10', 3, N'Pin lâu, hiệu suất ổn định', 300, 0.02, 120, '2023-10-03 08:00', '2023-10-06 11:00', '2023-10-04 08:00', '2023-10-05 09:00', 'xiaomi_redmi_note_10.jpg'),
+(N'Oppo Find X3', 4, N'Máy ảnh chụp đêm tốt, thiết kế độc đáo', 800, 0.15, 50, '2023-10-04 07:00', '2023-10-07 10:00', '2023-10-05 07:00', '2023-10-06 08:00', 'oppo_find_x3.jpg'),
+(N'OnePlus 9', 5, N'Hiệu suất mạnh mẽ, hỗ trợ sạc nhanh', 900, 0.0, 200, '2023-10-05 06:00', '2023-10-08 09:00', '2023-10-06 06:00', '2023-10-07 07:00', 'oneplus_9.jpg'),
+(N'Realme GT', 6, N'Chip mạnh mẽ, giá cả phải chăng', 600, 0.12, 70, '2023-10-06 05:00', '2023-10-09 08:00', '2023-10-07 05:00', '2023-10-08 06:00', 'realme_gt.jpg'),
+(N'Vivo V21', 7, N'Camera tự sướng chất lượng cao, màn hình AMOLED', 400, 0.08, 150, '2023-10-07 04:00', '2023-10-10 07:00', '2023-10-08 04:00', '2023-10-09 05:00', 'vivo_v21.jpg'),
+(N'Nokia 8.3', 8, N'Khả năng chịu nước tốt, cấu hình ổn định', 500, 0.11, 90, '2023-10-08 03:00', '2023-10-11 06:00', '2023-10-09 03:00', '2023-10-10 04:00', 'nokia_8_3.jpg'),
+(N'Google Pixel 6', 9, N'Camera chất lượng cao, hỗ trợ cập nhật nhanh chóng', 1000, 0.03, 180, '2023-10-09 02:00', '2023-10-12 05:00', '2023-10-10 02:00', '2023-10-11 03:00', 'google_pixel_6.jpg'),
+(N'Motorola Edge', 10, N'Thiết kế màn hình cong, pin lâu', 700, 0.14, 60, '2023-10-10 01:00', '2023-10-13 04:00', '2023-10-11 01:00', '2023-10-12 02:00', 'motorola_edge.jpg');
+
+-- Thêm dữ liệu vào bảng btlOrder
+INSERT INTO btlOrder ( UserId, token, status, total, createdAt, updatedAt) 
+VALUES 
+(1, N'token123', N'Shipped', 1200, '2023-10-01 10:00', '2023-10-05 12:00'),
+(2, N'token456', N'Processing', 1500, '2023-10-02 09:00', '2023-10-04 14:00'),
+(3, N'token789', N'Delivered', 300, '2023-10-03 08:00', '2023-10-06 11:00'),
+(4, N'token1011', N'Cancelled', 800, '2023-10-04 07:00', '2023-10-07 10:00'),
+(5, N'token1213', N'Shipped', 900, '2023-10-05 06:00', '2023-10-08 09:00'),
+(6, N'token1415', N'Processing', 600, '2023-10-06 05:00', '2023-10-09 08:00'),
+(7, N'token1617', N'Delivered', 400, '2023-10-07 04:00', '2023-10-10 07:00'),
+(8, N'token1819', N'Shipped', 500, '2023-10-08 03:00', '2023-10-11 06:00'),
+(9, N'token2021', N'Processing', 1000, '2023-10-09 02:00', '2023-10-12 05:00'),
+(10, N'token2223', N'Delivered', 700, '2023-10-10 01:00', '2023-10-13 04:00');
+
+-- Thêm dữ liệu vào bảng tblBill
+INSERT INTO tblBill ( orderID, userID, status, createdAt, updatedAt, total) 
+VALUES 
+(1, 1, N'Paid', '2023-10-01 10:00', '2023-10-05 12:00', 1200),
+(2, 2, N'Pending', '2023-10-02 09:00', '2023-10-04 14:00', 1500),
+(3, 3, N'Paid', '2023-10-03 08:00', '2023-10-06 11:00', 300),
+(4, 4, N'Cancelled', '2023-10-04 07:00', '2023-10-07 10:00', 800),
+(5, 5, N'Paid', '2023-10-05 06:00', '2023-10-08 09:00', 900),
+(6, 6, N'Pending', '2023-10-06 05:00', '2023-10-09 08:00', 600),
+(7, 7, N'Paid', '2023-10-07 04:00', '2023-10-10 07:00', 400),
+(8, 8, N'Paid', '2023-10-08 03:00', '2023-10-11 06:00', 500),
+(9, 9, N'Pending', '2023-10-09 02:00', '2023-10-12 05:00', 1000),
+( 10, 10, N'Paid', '2023-10-10 01:00', '2023-10-13 04:00', 700);
+
+-- Thêm dữ liệu vào bảng tblOrderDetail
+INSERT INTO tblOrderDetail ( productId, orderId, price, discount, quantity, createdAt, updatedAt) 
+VALUES 
+(1, 1, 1200, 0.1, 1, '2023-10-01 10:00', '2023-10-05 12:00'),
+(2, 2, 1500, 0.05, 1, '2023-10-02 09:00', '2023-10-04 14:00'),
+(3, 3, 300, 0.02, 1, '2023-10-03 08:00', '2023-10-06 11:00'),
+(4, 4, 800, 0.15, 1, '2023-10-04 07:00', '2023-10-07 10:00'),
+(5, 5, 900, 0.0, 1, '2023-10-05 06:00', '2023-10-08 09:00'),
+(6, 6, 600, 0.12, 1, '2023-10-06 05:00', '2023-10-09 08:00'),
+(7, 7, 400, 0.08, 1, '2023-10-07 04:00', '2023-10-10 07:00'),
+(8, 8, 500, 0.11, 1, '2023-10-08 03:00', '2023-10-11 06:00'),
+(9, 9, 1000, 0.03, 1, '2023-10-09 02:00', '2023-10-12 05:00'),
+( 10, 10, 700, 0.14, 1, '2023-10-10 01:00', '2023-10-13 04:00');
+
+
